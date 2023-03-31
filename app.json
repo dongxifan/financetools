@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/finance/finance",
     "pages/mortgage/mortgage",
+    "pages/finance/finance",
     "pages/finance/func/func",
     "pages/wuxian-yijin/wxyj",
     "pages/logs/logs",
@@ -10,7 +10,7 @@
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#1AAD19",
-    "backgroundTextStyle": "black",
+    "backgroundTextStyle": "dark",
     "backgroundColor": "#f8f8f8",
     "navigationBarTitleText": "Finance"
   },
@@ -21,16 +21,16 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/finance/finance",
-        "iconPath": "image/icon_component.png",
-        "selectedIconPath": "image/icon_component_HL.png",
-        "text": "金融公式"
-      },
-      {
         "pagePath": "pages/mortgage/mortgage",
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
         "text": "房贷计算"
+      },
+      {
+        "pagePath": "pages/finance/finance",
+        "iconPath": "image/icon_component.png",
+        "selectedIconPath": "image/icon_component_HL.png",
+        "text": "金融公式"
       },
       {
         "pagePath": "pages/wuxian-yijin/wxyj",
