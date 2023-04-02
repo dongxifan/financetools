@@ -2,8 +2,8 @@ var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 
 Page({
   data: {
-    commercialTotal: 1000000,
-    gjjTotal: 500000,
+    commercialTotal: 100,
+    gjjTotal: 50,
 
     tabs: ["商业贷款", "公积金贷款", "组合贷款"],
     activeIndex: 0,
@@ -83,8 +83,9 @@ Page({
     var interestRatePerMou0;
     var interestRatePerMou1;
     var totalMouths;
-    commercialTotal = this.data.loanIndex == 1 || this.data.activeIndex == 2 ? this.data.commercialTotal : this.data.commercialTotal * this.data.percentArr[this.data.percentIndex] / 10;
-    gjjTotal = this.data.loanIndex == 1 || this.data.activeIndex == 2 ? this.data.gjjTotal : this.data.gjjTotal * this.data.percentArr[this.data.percentIndex] / 10;
+    // commercialTotal = this.data.loanIndex == 1 || this.data.activeIndex == 2 ? this.data.commercialTotal : this.data.commercialTotal * this.data.percentArr[this.data.percentIndex] / 10;
+    commercialTotal = this.data.commercialTotal ;
+    gjjTotal =this.data.gjjTotal;
     interestRatePerMou0 = this.data.rates[0][this.data.rateIndex0];
     interestRatePerMou1 = this.data.rates[1][this.data.rateIndex1];
     totalMouths = this.data.years[this.data.yearIndex] * 12;

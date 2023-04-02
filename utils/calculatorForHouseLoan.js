@@ -38,7 +38,6 @@ const loanFormula = {
 
     // 简化公式，创建变量x、y
     let [x, y] = [Math.pow((1 + interestRatePerMou), i), Math.pow((1 + interestRatePerMou), totalMouths)];
-
     return (loanTotal * interestRatePerMou * (x - y * (x - 1) / (y - 1)));
   }
 };
@@ -112,8 +111,8 @@ const calculate = function (loanTotal, interestRatePerMou, totalMouths) {
       repayPerMouObj.repayPerMouObjAi.totalRepayPerMouArrAi.push(formatFloat(totalRepayPerMouAi, 2));
 
       // 等额本金第(i+1)个月需还利息
-      let repayInterestPerMouAp = loanTotal * interestRatePerMou * (1 - (i - 1) / totalMouths);
-
+      let repayInterestPerMouAp = loanTotal * interestRatePerMou * (1 - i/ totalMouths);
+    
       // 等额本金第(i+1)个月还本带息
       let repayPerMouPriceAp = repayPrincipalPerMouAp + repayInterestPerMouAp;
 

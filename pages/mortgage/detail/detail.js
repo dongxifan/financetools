@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: ["等额本息", "等额本金", "本息/本金"],
+    tabs: ["等额本息", "等额本金", "本息vs本金"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
@@ -54,11 +54,11 @@ Page({
 
     var detail;
     if (e.parentActiveIndex == 0) {
-      detail = CFHL.calculate(+e.commercialTotal, +e.interestRatePerMou0 / 12, +e.totalMouths);
+      detail = CFHL.calculate(+e.commercialTotal * 10000, +e.interestRatePerMou0 / 12, +e.totalMouths);
     } else if (e.parentActiveIndex == 1) {
-      detail = CFHL.calculate(+e.gjjTotal, +e.interestRatePerMou1 / 12, +e.totalMouths);
+      detail = CFHL.calculate(+e.gjjTotal* 10000, +e.interestRatePerMou1 / 12, +e.totalMouths);
     } else {
-      var tmp = CFHL.calculate(+e.commercialTotal, +e.interestRatePerMou0 / 12, +e.totalMouths);
+      var tmp = CFHL.calculate(+e.commercialTotal* 10000, +e.interestRatePerMou0 / 12, +e.totalMouths);
       detail = CFHL.calculate(+e.gjjTotal, +e.interestRatePerMou1 / 12, +e.totalMouths);
       for(let key in detail) {
         if (detail.hasOwnProperty(key)) {
@@ -77,7 +77,6 @@ Page({
         }
       }
     }
-    console.log(detail);
     this.setData({ ...e, ...detail }, () => { wx.hideLoading() });
     var that = this;
     wx.getSystemInfo({
