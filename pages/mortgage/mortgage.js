@@ -49,12 +49,12 @@ Page({
   },
   rateChange0(e) {
     this.setData({
-      rateIndex0: e.detail.value
+      rateIndex0:  e.detail.value 
     });
   },
   rateChange1(e) {
     this.setData({
-      rateIndex1: e.detail.value
+      rateIndex1:  e.detail.value 
     });
   },
   percentChange(e) {
@@ -77,6 +77,16 @@ Page({
       gjjTotal: e.detail.value
     });
   },
+  bindKeyRateIndex0(e){
+    this.setData({
+      rateIndex0: e.detail.value / 100
+    })
+  },
+  bindKeyRateIndex1(e){
+    this.setData({
+      rateIndex1: e.detail.value/ 100
+    })
+  },
   showDetail() {
     var commercialTotal;
     var gjjTotal;
@@ -86,8 +96,10 @@ Page({
     // commercialTotal = this.data.loanIndex == 1 || this.data.activeIndex == 2 ? this.data.commercialTotal : this.data.commercialTotal * this.data.percentArr[this.data.percentIndex] / 10;
     commercialTotal = this.data.commercialTotal ;
     gjjTotal =this.data.gjjTotal;
-    interestRatePerMou0 = this.data.rates[0][this.data.rateIndex0];
-    interestRatePerMou1 = this.data.rates[1][this.data.rateIndex1];
+    // interestRatePerMou0 = this.data.rates[0][this.data.rateIndex0];
+    // interestRatePerMou1 = this.data.rates[1][this.data.rateIndex1];
+    interestRatePerMou0 = this.data.rateIndex0;
+    interestRatePerMou1 = this.data.rateIndex1;
     totalMouths = this.data.years[this.data.yearIndex] * 12;
     wx.navigateTo({
       url: './detail/detail?parentActiveIndex=' + this.data.activeIndex + '&commercialTotal=' + commercialTotal + '&gjjTotal=' + gjjTotal + '&interestRatePerMou0=' + interestRatePerMou0 + '&interestRatePerMou1=' + interestRatePerMou1 + '&totalMouths=' + totalMouths

@@ -13,26 +13,25 @@
         <view class="weui-tab__content">
           <view class="page-section">
             <view class="weui-cells weui-cells_after-title">
-              <view class="weui-cell weui-cell_select" hidden="{{activeIndex == 1}}">
-                <view class="weui-cell__hd weui-cell__hd_in-select-after">
-                  <view class="weui-label">商业贷利率：</view>
+            
+              <view class="weui-cell weui-cell_input" hidden="{{activeIndex == 1}}">
+                <view class="weui-cell__hd">
+                  <view class="weui-label">商业总额：</view>
                 </view>
-                <view class="weui-cell__bd">
-                  <picker bindchange="rateChange0" value="{{rateIndex0}}" range="{{ratesName[0]}}">
-                    <view class="weui-select weui-select_in-select-after weui-cell__ft">{{ratesName[0][rateIndex0]}}</view>
-                  </picker>
+                <view class="weui-cell__bd" style="width:400rpx;flex:none;padding-bottom:2rpx;"> 
+                  <input class="weui-input" maxlength="6" type="digit" placeholder="请输入总额" name="data0" value="{{commercialTotal}}" bindinput="commercialTotalChange" style="text-align:right"></input>
                 </view>
+                <view class="weui-cell__bd weui-cell__ft">万元</view>
               </view>
 
-              <view class="weui-cell weui-cell_select" hidden="{{activeIndex == 0}}">
-                <view class="weui-cell__hd weui-cell__hd_in-select-after">
-                  <view class="weui-label">公积金利率：</view>
+              <view class="weui-cell weui-cell_input" hidden="{{activeIndex == 0}}">
+                <view class="weui-cell__hd">
+                  <view class="weui-label">公积金总额：</view>
                 </view>
-                <view class="weui-cell__bd">
-                  <picker bindchange="rateChange1" value="{{rateIndex1}}" range="{{ratesName[1]}}">
-                    <view class="weui-select weui-select_in-select-after weui-cell__ft">{{ratesName[1][rateIndex1]}}</view>
-                  </picker>
+                <view class="weui-cell__bd" style="width:400rpx;flex:none;padding-bottom:2rpx;">
+                  <input class="weui-input" maxlength="6" type="digit" placeholder="请输入总额" name="data1" value="{{gjjTotal}}" bindinput="gjjTotalChange" style="text-align:right"></input>
                 </view>
+                <view class="weui-cell__bd weui-cell__ft">万元</view>
               </view>
 
               <view class="weui-cell weui-cell_select">
@@ -44,52 +43,39 @@
                     <view class="weui-select weui-select_in-select-after weui-cell__ft">{{years[yearIndex]}}年</view>
                   </picker>
                 </view>
-              </view>
-
-              <!-- <view class="weui-cell weui-cell_select" hidden="{{activeIndex == 2}}">
-                <view class="weui-cell__hd weui-cell__hd_in-select-after">
-                  <view class="weui-label">计算方式：</view>
-                </view>
-                <view class="weui-cell__bd">
-                  <picker bindchange="loanChange" value="{{loanIndex}}" range="{{loansType}}">
-                    <view class="weui-select weui-select_in-select-after weui-cell__ft">{{loansType[loanIndex]}}</view>
-                  </picker>
-                </view>
-              </view>
-
-              <view class="weui-cell weui-cell_select" hidden="{{loanIndex != 0 || activeIndex == 2}}">
-                <view class="weui-cell__hd weui-cell__hd_in-select-after">
-                  <view class="weui-label">贷款比例：</view>
-                </view>
-                <view class="weui-cell__bd">
-                  <picker bindchange="percentChange" value="{{percentIndex}}" range="{{percentArr}}">
-                    <view class="weui-select weui-select_in-select-after weui-cell__ft">{{percentArr[percentIndex]}}成</view>
-                  </picker>
-                </view>
-              </view> -->
+              </view> 
 
               <view class="weui-cell weui-cell_input" hidden="{{activeIndex == 1}}">
+                <!-- <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                  <view class="weui-label">商业贷利率：</view>
+                </view> -->
                 <view class="weui-cell__hd">
-                  <view class="weui-label">商业总额：</view>
+                  <view class="weui-label">商业贷利率：</view>
                 </view>
-                <view class="weui-cell__bd">
-                  <input class="weui-input" type="digit" placeholder="请输入总额" name="data0" value="{{commercialTotal}}" bindinput="commercialTotalChange"></input>
+                <view class="weui-cell__bd" style="width:436rpx;flex:none;padding-bottom:2rpx;"> 
+                  <input class="weui-input" maxlength="6" type="digit" placeholder="请输入" bindinput="bindKeyRateIndex0"  style="text-align: right"/>
+                  <!-- <picker bindchange="rateChange0" value="{{rateIndex0}}" range="{{ratesName[0]}}">
+                    <view class="weui-select weui-select_in-select-after weui-cell__ft">{{ratesName[0][rateIndex0]}}</view>
+                  </picker> -->
                 </view>
-                <view class="weui-cell__bd weui-cell__ft">万元</view>
+                <view class="weui-cell__bd weui-cell__ft" style="width: 20rpx;width: 30px;flex: none;text-align: center;">%</view>
               </view>
 
-              <view class="weui-cell weui-cell_input" hidden="{{activeIndex == 0}}">
+              <view  class="weui-cell weui-cell_input" hidden="{{activeIndex == 0}}">
                 <view class="weui-cell__hd">
-                  <view class="weui-label">公积金总额：</view>
+                  <view class="weui-label">公积金利率：</view>
                 </view>
-                <view class="weui-cell__bd">
-                  <input class="weui-input" type="digit" placeholder="请输入总额" name="data1" value="{{gjjTotal}}" bindinput="gjjTotalChange"></input>
+                <view class="weui-cell__bd" style="width:436rpx;flex:none;padding-bottom:2rpx;"> 
+                  <input class="weui-input" type="digit" maxlength="6" bindinput="bindKeyRateIndex1" placeholder="请输入" style="text-align: right;"/>
+                  <!-- <picker bindchange="rateChange1" value="{{rateIndex1}}" range="{{ratesName[1]}}">
+                    <view class="weui-select weui-select_in-select-after weui-cell__ft">{{ratesName[1][rateIndex1]}}</view>
+                  </picker> -->
                 </view>
-                <view class="weui-cell__bd weui-cell__ft">万元</view>
+                <view class="weui-cell__bd weui-cell__ft" style="width: 20rpx;width: 30px;flex: none;text-align: center;">%</view>
               </view>
             </view>
             <view class="btn-area">
-              <button type="primary" bindtap="showDetail" disabled="{{activeIndex==2?!(commercialTotal&&gjjTotal): (activeIndex==1?!gjjTotal: !commercialTotal)}}">计算</button>
+              <button type="primary" bindtap="showDetail" disabled="{{activeIndex==2 ? !(commercialTotal&&gjjTotal&&rateIndex0&&rateIndex1): (activeIndex==1 ? !gjjTotal|| !rateIndex1 : !commercialTotal || !rateIndex0)}}">开始计算</button>
             </view> 
           </view>
         </view>
